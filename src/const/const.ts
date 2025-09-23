@@ -1,0 +1,1 @@
+export const basename = "/gauss-seidel";
