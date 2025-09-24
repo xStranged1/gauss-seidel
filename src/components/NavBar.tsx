@@ -4,11 +4,6 @@ import { Link, useLocation } from "wouter";
 export function Navbar() {
 
     const [location] = useLocation();
-    console.log('basename');
-    console.log(basename);
-    console.log("location");
-    console.log(location);
-
     const isAtTeoria = location === `${basename}/teoria` || location === `${basename}/teoria/`;
     const isAtPractica = location === `${basename}/practica` || location === `${basename}/practica/`;
 
