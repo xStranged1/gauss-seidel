@@ -110,7 +110,6 @@ export default function PracticaScreen() {
 
     return (
         <div className="px-4 py-6 bg-background min-h-screen">
-            <h1 className="text-center text-2xl font-semibold mb-6">Práctica</h1>
 
             <Card className="w-full max-w-3xl mx-auto border border-border">
                 <CardHeader>
