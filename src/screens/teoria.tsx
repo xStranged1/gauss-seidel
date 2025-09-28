@@ -10,14 +10,14 @@ export default function TeoriaScreen() {
         \right] \qquad \forall i = 1:n \quad \forall k = 1:n
     `;
     return (
-        <div>
-            <h1 className="text-center text-2xl font-medium">Teoría</h1>
+        <div className="text-foreground pb-10 bg-background">
+            <h1 className="text-center text-2xl font-medium text-foreground">Teoría</h1>
             <p>Comentario idea: aca podria ir introduccion, precondiciones, de que tipo es este metodo</p>
             <p>condicion suf pero no necesaria que sea diagonalmente dominante, que es diagonalmente dominante</p>
             <p>desarrollo teorico blblalba</p>
             <p>desarrollo teorico blblalba</p>
             <h1 className="text-center text-lg font-medium mt-4 mb-2">Iteración de Gauss-Seidel.</h1>
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center h-32">
                 <Latex >{`$${formula}$`}</Latex>
             </div>
         </div>
