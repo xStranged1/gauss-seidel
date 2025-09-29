@@ -12,10 +12,10 @@ export const LATEX_DIAGONALLY_DOMINANT = String.raw`\large
 export const LATEX_GAUSS_SEIDEL_MATRICIAL = String.raw`\large
 \textbf{Desarrollo matricial del método de Gauss-Seidel} \\[10pt]
 
-\text{Sea el sistema: } A.\vec{x} = b \\[6pt]
+\text{Sea el sistema: } A.\vec{x} = b  (1)\\[6pt] 
 
 \text{Se descompone la matriz } A \text{ en: } 
-A = D - E - F \\[6pt]
+A = (D - E) - F  (2)\\[6pt] 
 
 \text{donde: } \\
 D = 
