@@ -1,5 +1,6 @@
 import { LATEX_DIAGONALLY_DOMINANT, LATEX_GAUSS_SEIDEL } from "@/const/const";
 import Latex from "react-latex-next";
+import GaussSeidel from "@/components/TeoriaComponent";
 
 export default function TeoriaScreen() {
 
@@ -8,8 +9,7 @@ export default function TeoriaScreen() {
 
     return (
         <div className="text-foreground pb-10 bg-background mt-10">
-            <p>Comentario idea: aca podria ir introduccion, precondiciones, de que tipo es este metodo</p>
-            <p>desarrollo teorico blblalba</p>
+            <GaussSeidel />
             <h1 className="text-center text-lg font-medium text-foreground">Condición diagonalmente dominante</h1>
             <div className="flex items-center justify-center h-32">
                 <Latex >{`$${LATEX_DIAGONALLY_DOMINANT}$`}</Latex>
