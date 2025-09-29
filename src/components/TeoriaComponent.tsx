@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { LATEX_GAUSS_SEIDEL } from "@/const/const";
 import Latex from "react-latex-next";
 
 // Componente FlipCard corregido
@@ -120,7 +119,7 @@ export default function GaussSeidelTheory() {
           String.raw`$$x_3^{(k)} = \frac{1}{3} (6 - (1\cdot x_1^{(k)} + 1\cdot x_2^{(k)}))$$`,
         ]}
       />
-    <Separator/>
+      <Separator />
     </div>
   );
 }
