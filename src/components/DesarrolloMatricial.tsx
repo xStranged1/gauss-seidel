@@ -1,16 +1,37 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Latex from "react-latex-next";
-
+import { Separator } from "@/components/ui/separator";
 export default function DesarrolloMatricial() {
 
   return (
 
     <div className="px-16 py-6 bg-background min-h-screen">
+      <CardTitle className="text-2xl text-center mb-4">Desarrollo matricial</CardTitle>
+
+      <Card className="border border-border my-6">
+        <CardContent className="space-y-4">
+          <p className="font-medium">
+            Sea el sistema de ecuaciones:
+          </p>
+          <Latex>{String.raw`
+\[
+A \cdot \vec{x} = \vec{b} \quad (1)
+\]
+`}</Latex>
+
+          <p>
+            Se descompone la matriz <Latex>{String.raw`A`}</Latex> de los
+            coeficientes en:
+          </p>
+          <Latex>{String.raw`
+\[
+A = (D - E) - F \quad (2)
+\]
+`}</Latex>
+        </CardContent>
+      </Card>
 
       <Card className="w-full mx-auto border border-border">
-        <CardHeader>
-          <CardTitle className="text-2xl text-center">Desarrollo matricial</CardTitle>
-        </CardHeader>
         <CardContent className="space-y-3 text-sm leading-relaxed">
           <div className="flex items-center justify-center">
             <Latex>
@@ -69,28 +90,26 @@ export default function DesarrolloMatricial() {
 
 
 
-      <div className="space-y-6">
+      <div className="space-y-6 mt-6">
         {/* Paso: Premultiplicando */}
-        <Card className="border border-border max-w-2xl">
+        <Card className="border border-border max-w-2xl mx-auto">
           <CardHeader>
             <CardTitle>Premultiplicando</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <p>
-              Premultiplicando por <Latex>{String.raw`(D - E)^{-1}`}</Latex>:
-            </p>
             <Latex>{String.raw`
-\[
-(D - E)^{-1} \cdot (D - E) \cdot \vec{x} 
-= (D - E)^{-1} \cdot F \cdot \vec{x} + (D - E)^{-1} \cdot \vec{b}
-\quad (4)
-\]
-`}</Latex>
+              \[
+              \underbrace{(D - E)^{-1} \cdot (D - E)}_I \cdot \vec{x} 
+              = (D - E)^{-1} \cdot F \cdot \vec{x} + (D - E)^{-1} \cdot \vec{b}
+              \quad (4)
+              \]
+              `}
+            </Latex>
           </CardContent>
         </Card>
 
         {/* Paso: Despejando F */}
-        <Card className="border border-border max-w-2xl">
+        <Card className="border border-border max-w-2xl mx-auto">
           <CardHeader>
             <CardTitle>Despejando F</CardTitle>
           </CardHeader>
@@ -103,10 +122,7 @@ F = (D - E) - A \quad (5)
         </Card>
 
         {/* Paso: Reemplazando */}
-        <Card className="border border-border max-w-2xl">
-          <CardHeader>
-            <CardTitle>Reemplazando en (4)</CardTitle>
-          </CardHeader>
+        <Card className="border border-border max-w-2xl mx-auto">
           <CardContent className="space-y-4">
             <p>
               Reemplazando (5) en (4) se obtiene:
@@ -126,13 +142,13 @@ F = (D - E) - A \quad (5)
         </Card>
 
         {/* Definición de Ts y c */}
-        <Card className="border border-border max-w-2xl">
+        <Card className="border border-border max-w-2xl mx-auto">
           <CardHeader>
             <CardTitle>Matriz de Gauss-Seidel</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <p>
-              Donde definimos la matriz de iteración y el vector constante:
+              Donde:
             </p>
             <Latex>{String.raw`
 \[
@@ -145,7 +161,7 @@ T_s = \big[I - (D - E)^{-1} \cdot A\big],
         </Card>
 
         {/* Esquema Iterativo */}
-        <Card className="border border-border max-w-2xl">
+        <Card className="border border-border max-w-2xl mx-auto">
           <CardHeader>
             <CardTitle>Esquema Iterativo de Gauss-Seidel</CardTitle>
           </CardHeader>
@@ -158,28 +174,64 @@ T_s = \big[I - (D - E)^{-1} \cdot A\big],
           </CardContent>
         </Card>
 
-        {/* Nota sobre D - E */}
-        <Card className="border border-border max-w-2xl">
-          <CardHeader>
-            <CardTitle>Nota Importante</CardTitle>
-          </CardHeader>
-          <CardContent>
+        <Card className="border border-border">
+          <CardContent className="space-y-4">
             <Latex>{String.raw`
 \[
-D - E = 
+D - E =
+\underbrace{
 \begin{bmatrix}
 a_{11} & 0 & \cdots & 0 \\
-a_{21} & a_{22} & \cdots & 0 \\
+0 & a_{22} & \cdots & 0 \\
 \vdots & \vdots & \ddots & \vdots \\
-a_{n1} & a_{n2} & \cdots & a_{nn}
+0 & 0 & \cdots & a_{nn}
 \end{bmatrix}
+}_{D}
++
+\underbrace{
+\begin{bmatrix}
+0 & 0 & \cdots & 0 \\
+a_{21} & 0 & \cdots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{n1} & a_{n2} & \cdots & 0
+\end{bmatrix}
+}_{-E}
 \]
 `}</Latex>
-            <p className="mt-2">
+
+            <p>
               Entonces <Latex>{String.raw`(D - E)`}</Latex> es una matriz
               triangular inferior. Por lo tanto, es más fácil de invertir que{" "}
               <Latex>{String.raw`A`}</Latex>.
             </p>
+          </CardContent>
+        </Card>
+
+        <Card className="border border-border mt-6">
+          <CardHeader>
+            <CardTitle>Preguntas para Reflexionar</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3">
+
+
+            <div className="space-y-2">
+              <h3 className="font-semibold">Diferencias con Jacobi</h3>
+              <p className="text-muted-foreground">¿Cuál converge más rápido?</p>
+            </div>
+
+            <Separator />
+
+            <div className="space-y-2">
+              <h3 className="font-semibold">¿Cuándo usar Gauss-Seidel?</h3>
+              <p className="text-muted-foreground">¿En qué tipo de sistemas es más eficiente este método? ¿Qué condiciones debe cumplir la matriz?</p>
+            </div>
+
+            <Separator />
+
+            <div className="space-y-2">
+              <h3 className="font-semibold">Criterios de parada</h3>
+              <p className="text-muted-foreground">¿Cuándo es más conveniente usar error absoluto vs. error relativo? ¿Cómo afecta la tolerancia a la solución?</p>
+            </div>
           </CardContent>
         </Card>
       </div>
