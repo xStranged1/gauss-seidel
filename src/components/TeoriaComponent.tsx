@@ -120,6 +120,7 @@ export default function GaussSeidelTheory() {
           String.raw`$$x_3^{(k)} = \frac{1}{3} (6 - (1\cdot x_1^{(k)} + 1\cdot x_2^{(k)}))$$`,
         ]}
       />
+    <Separator/>
     </div>
   );
 }
