@@ -190,17 +190,39 @@ export default function PracticaScreen() {
                         </div>
                         <div>
                             <Label className="text-sm font-semibold mb-2">Criterio de parada</Label>
-                            <RadioGroup value={errorType} onValueChange={(v) => setErrorType(v as "absolute" | "relative")} className="flex gap-4 mt-2">
+                            <RadioGroup
+                                value={errorType}
+                                onValueChange={(v) => setErrorType(v as "absolute" | "relative")}
+                                className="flex gap-4 mt-2"
+                            >
                                 <div className="flex items-center space-x-2">
-                                    <RadioGroupItem value="absolute" id="absolute" />
-                                    <Label htmlFor="absolute" className="font-normal cursor-pointer">Error Absoluto</Label>
+                                <RadioGroupItem value="absolute" id="absolute" />
+                                <Label htmlFor="absolute" className="font-normal cursor-pointer">
+                                    Error Absoluto
+                                </Label>
                                 </div>
                                 <div className="flex items-center space-x-2">
-                                    <RadioGroupItem value="relative" id="relative" />
-                                    <Label htmlFor="relative" className="font-normal cursor-pointer">Error Relativo</Label>
+                                <RadioGroupItem value="relative" id="relative" />
+                                <Label htmlFor="relative" className="font-normal cursor-pointer">
+                                    Error Relativo
+                                </Label>
                                 </div>
                             </RadioGroup>
-                        </div>
+
+                            {/* Mostrar fórmula según selección */}
+                            <Card className="bg-muted/50 border border-border mt-4">
+                                <CardContent className="pt-4">
+                                <div className="text-center">
+                                    {errorType === "absolute" && (
+                                    <Latex>{`$$\\left| x_i^{(k)} - x_i^{(k-1)} \\right| < \\varepsilon, \\quad \\forall x_i = 1:n$$`}</Latex>
+                                    )}
+                                    {errorType === "relative" && (
+                                    <Latex>{`$$\\frac{\\left| x_i^{(k)} - x_i^{(k-1)} \\right|}{\\left| x_i^{(k)} \\right|} < \\varepsilon, \\quad \\forall x_i = 1:n$$`}</Latex>
+                                    )}
+                                </div>
+                                </CardContent>
+                            </Card>
+                            </div>
 
                         <div>
                             <Label htmlFor="tolerance" className="text-sm font-semibold">Tolerancia</Label>
