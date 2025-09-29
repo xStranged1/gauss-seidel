@@ -2,6 +2,7 @@ import { LATEX_DIAGONALLY_DOMINANT, LATEX_GAUSS_SEIDEL } from "@/const/const";
 import Latex from "react-latex-next";
 import GaussSeidel from "@/components/TeoriaComponent";
 import DiagonalDominanteCard from "@/components/DiagDominante";
+import GaussSeidelFormulaCard from "@/components/GaussSeidelFormulaCard";
 
 export default function TeoriaScreen() {
 
@@ -21,6 +22,7 @@ export default function TeoriaScreen() {
             <div className="flex items-center justify-center h-32">
                 <Latex >{`$${LATEX_GAUSS_SEIDEL}$`}</Latex>
             </div>
+            <GaussSeidelFormulaCard/>
 
 
         </div>

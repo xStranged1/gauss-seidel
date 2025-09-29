@@ -1,5 +1,6 @@
 import { basename } from "@/const/const";
 import { Link } from "wouter";
+import "@/styles/globals.css";
 
 export default function IndexScreen() {
 
