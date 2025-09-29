@@ -40,16 +40,12 @@ F =
 0 & 0 & \cdots & 0
 \end{bmatrix} \\[10pt]
 
-\text{Reemplazando en } A x = b: \\[6pt]
+\text{Reemplazando en } (2) \\[6pt]
 
 (D - E) x = F x + b \\[6pt]
 
 x^{(k+1)} = (D - E)^{-1} F x^{(k)} + (D - E)^{-1} b \\[10pt]
 
-\text{Definiendo } T_s = (D - E)^{-1} F, \quad c = (D - E)^{-1} b \\[6pt]
-
-\text{El esquema iterativo es:} \\
-x^{(k+1)} = T_s x^{(k)} + c
 `;
 
 export const LATEX_GS_DESARROLLO = String.raw`\Large
@@ -80,6 +76,13 @@ $$
 \text{Reemplazando (5) en (4):}
 $$
 \vec{x} = (D - E)^{-1}\Big[(D - E) - A\Big]\vec{x} + (D - E)^{-1}\vec{b}
+$$
+
+$$
+\text{Definiendo } T_s = (D - E)^{-1} F, \quad c = (D - E)^{-1} b \\[6pt]
+
+\text{El esquema iterativo es:} \\
+x^{(k+1)} = T_s x^{(k)} + c
 $$
 `;
 
